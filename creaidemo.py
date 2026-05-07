@@ -20,6 +20,16 @@ writer = Agent(
     llm=llm
 )
 
+coder=Agent(
+     role="coder",
+    goal="calculator app in python",
+    backstory="Technical content writer",
+    llm=llm
+
+)
+
+
+
 task1 = Task(
     description="Research 3 AI project ideas",
     expected_output="List of AI project ideas",
@@ -31,10 +41,15 @@ task2 = Task(
     expected_output="Short explanations",
     agent=writer
 )
+task3 = Task(
+    description="calculator app in python",
+    expected_output="Short explanations",
+    agent=coder
+)
 
 crew = Crew(
-    agents=[researcher, writer],
-    tasks=[task1, task2]
+    agents=[researcher, writer,coder],
+    tasks=[task1, task2,task3]
 )
 
 result = crew.kickoff()
