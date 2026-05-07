@@ -1,7 +1,7 @@
 from sklearn.metrics.pairwise import cosine_similarity
 import ollama
 
-text1 = "Machine learning is AI"
+text1 = "i like playing cricket"
 text2 = "Artificial intelligence includes ML"
 
 emb1 = ollama.embed(
